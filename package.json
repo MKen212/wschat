@@ -1,0 +1,22 @@
+{
+  "name": "wschat",
+  "version": "1.0.0",
+  "description": "Web Sockets Chat Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarkKensington/wschat.git"
+  },
+  "author": "Mark Kensington",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarkKensington/wschat/issues"
+  },
+  "homepage": "https://github.com/MarkKensington/wschat#readme",
+  "dependencies": {
+    "ws": "^6.1.3"
+  }
+}
