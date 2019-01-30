@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Socket Chat App</title>
+</head>
+<body>
+    <input type="text" id="message" placeholder="Message">
+    <button type="button" onclick="postMessage()">Post Message</button>
+    <div id="messages"></div>
+</body>
+
+<script>
+var websocket;
+
+function init() {
+    websocket = new WebSocket('ws://68.183.64.239:3000');
+    
+    websocket.onopen = function(evt) {
+        websocket.send("Hello from Browser!");
+    };
+
+    websocket.onmessage = function(evt) {
+        console.log("Message back from server");
+        displayMessage(evt);
+    };
+};
+
+function postMessage() {
+    var message = document.getElementById("message").value;
+    websocket.send(message);
+};
+
+function displayMessage(evt) {
+    var messages = document.getElementById("messages");
+    var newMessage = "<div>" + evt.data + "</div>";
+    messages.innerHTML = messages.innerHTML + newMessage;
+};
+
+init();
+
+</script>
+</html>
