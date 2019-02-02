@@ -23,7 +23,7 @@ function init() {
     };
 
     websocket.onmessage = function(evt) {
-        console.log("Message back from server");
+        console.log("Message back from server: "+ new Date());
         displayMessage(evt);
     };
 };
