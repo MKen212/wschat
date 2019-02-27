@@ -7,8 +7,12 @@
     <title>Web Socket Chat App</title>
 </head>
 <body>
+    Enter Username:<br> 
+    <input type="text" id="userName" placeholder="Username">
+    <br><br>
+    Enter Message:<br>
     <input type="text" id="message" placeholder="Message">
-    <button type="button" onclick="postMessage()">Post Message</button>
+    <button type="button" onclick="postMessage()">Post Message</button><br><br>
     <div id="messages"></div>
 </body>
 
@@ -29,7 +33,13 @@ function init() {
 };
 
 function postMessage() {
-    var message = document.getElementById("message").value;
+    var userName = document.getElementById("userName").value
+
+    if (userName == "") {
+        alert("Please enter a username!");
+        return false;
+    }
+    var message = userName + ": " + document.getElementById("message").value;
     websocket.send(message);
 };
 
